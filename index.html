@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="pt_BR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta charset="utf-8"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Léo B. Castro"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="noindex, nofollow"/>
+		
+	<link rel="stylesheet" href="assets/css/app.min.css"/>
+    <link rel="stylesheet" href="assets/css/animate.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+    <style>
+        .backimage { overflow: hidden; }
+        .pfooter { text-align: center; font-size: .8em; }
+        @media screen and (max-width: 768px) {
+            #clock { width: 250px; height: 250px; }
+            .pfooter { font-size: .7em; }
+        }
+    </style>
+
+    <!--[if lte IE 8]>
+        <script src="assets/js/ie-support.min.js"></script>
+    <![endif]-->
+
+    <title>Sistema de Gestão Empresarial</title>
+</head>
+<body>
+    <main id="backimage_full" class="container-full backimage" style="background-image: url('assets/imgs/background.jpg')" onload="backimage_full.style.backgroundAttachment = 'fixed'">
+        <!-- Toggle button -->
+        <a id="toggle" class="btn btn-dark animated fadeInDownBig" href="#" role="button">
+            <i class="material-icons" style="vertical-align: -29%">visibility_off</i>
+            Esconder Relógio!
+        </a>
+        <!-- Clock -->
+        <div class="center" style="height: 86%">
+            <canvas id="clock" width="300" height="300"></canvas>
+        </div>
+        <!-- Footer digital timer -->
+        <p id="digital-timer" class="pfooter"></p>
+    </main>
+</body>
+    <!-- Full Background -->
+    <script>
+        var visibleHeight = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+        // Resize full intro image
+        backImg = document.getElementById("backimage_full");
+        backImg.style.height = (visibleHeight) + "px";
+        // Window object resize
+        var addEvent = function(object, type, callback) {
+            if (object == null || typeof(object) == 'undefined') return;
+            if (object.addEventListener) {
+                object.addEventListener(type, callback, false);
+            } else if (object.attachEvent) {
+                object.attachEvent("on" + type, callback);
+            } else {
+                object["on" + type] = callback;
+            }
+        };
+        addEvent(window, "resize", function(event) {
+            backImg.style.height = (visibleHeight) + "px";
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/clock.min.js"></script>
+</html>
